@@ -18,9 +18,8 @@ public class autonCreator extends JComponent
     
     private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     
-    private static void resize(String inputImagePath,
-                              String outputImagePath, int scaledWidth, int scaledHeight)
-            throws IOException {
+    private static void resize(String inputImagePath, String outputImagePath, int scaledWidth, int scaledHeight) throws IOException
+    {
         // reads input image
         File inputFile = new File(inputImagePath);
         BufferedImage inputImage = ImageIO.read(inputFile);
@@ -42,8 +41,8 @@ public class autonCreator extends JComponent
         ImageIO.write(outputImage, formatName, new File(outputImagePath));
     }
     
-    private static void resize(String inputImagePath,
-                              String outputImagePath, double percent) throws IOException {
+    private static void resize(String inputImagePath, String outputImagePath, double percent) throws IOException
+    {
         File inputFile = new File(inputImagePath);
         BufferedImage inputImage = ImageIO.read(inputFile);
         int scaledWidth = (int) (inputImage.getWidth() * percent);
