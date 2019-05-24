@@ -7,16 +7,31 @@ import java.io.*;
 
 public class autonCreator extends JComponent
 {
-    private autonCreator(){}
+    private static Image image;
     
     private static JFrame window;
     private static JPanel controls;
     private static JPanel field;
     
-    private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    private static Image image_resized;
+    private static int picOffset;
+    
+    
 
     public static void main(String[] args) throws IOException
     {
+        final Toolkit toolkit = Toolkit.getDefaultToolkit();
+        final GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        final GraphicsDevice graphicsDevice = graphicsEnvironment.getDefaultScreenDevice();
+        final Dimension screenBounds = toolkit.getScreenSize();
+        final Insets screenInsets = toolkit.getScreenInsets(graphicsDevice.getDefaultConfiguration());
+        final Rectangle screenSize = new Rectangle(screenBounds);
+        
+        screenSize.x += screenInsets.left;
+        screenSize.y += screenInsets.top;
+        screenSize.width -= (screenInsets.left + screenInsets.right);
+        screenSize.height -= (screenInsets.top + screenInsets.bottom);
+        
         String imagePath = "images/TowerTakeoverField.png";
 
         controls = new JPanel();
@@ -31,28 +46,20 @@ public class autonCreator extends JComponent
         window.getContentPane().add(field);
         
         controls.setBounds(0, 0, window.getWidth() / 2, window.getHeight());
-        
         field.setBounds(controls.getWidth(), 0, controls.getWidth(), window.getHeight());
+        controls.setLayout(null);
+        field.setLayout(null);
         
-        Image image = ImageIO.read(new File(imagePath));
+        image = ImageIO.read(new File(imagePath));
         float scalePercent = (float)field.getWidth() / (float)image.getWidth(null);
-        Image image_resized = image.getScaledInstance((int)(image.getWidth(null) * scalePercent),
-                (int) (image.getHeight(null) * scalePercent), Image.SCALE_SMOOTH);
+        image_resized = image.getScaledInstance((int)(image.getWidth(null) * scalePercent), (int) (image.getHeight(null) * scalePercent), Image.SCALE_SMOOTH);
+        picOffset = (field.getHeight() - image_resized.getHeight(null)) / 2;
+        
         JLabel picLabel = new JLabel(new ImageIcon(image_resized));
-        int picOffset = (window.getHeight() - image_resized.getHeight(null)) / 2;
-        picLabel.setBounds(field.getWidth() + field.getX(), picOffset, field.getWidth(), field.getHeight());
-
-        controls.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
-        field.setLayout(new FlowLayout(FlowLayout.CENTER, 10, picOffset));
-
+        picLabel.setBounds(new Rectangle(controls.getWidth(), picOffset, image_resized.getWidth(null), image_resized.getHeight(null)));
+        
         field.add(picLabel);
-        System.out.println(picLabel.getX());
         field.repaint();
         window.setVisible(true);
     }//end of main
-
-    public void paint(Graphics g)
-    {
-    
-    }
 }//end of class
