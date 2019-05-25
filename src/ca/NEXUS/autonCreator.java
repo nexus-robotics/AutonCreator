@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.util.*;
 
 public class autonCreator extends JComponent
 {
@@ -14,6 +15,8 @@ public class autonCreator extends JComponent
     private static Image fieldImage;
     static Image fieldImage_resized;
     private static int picOffset;
+    
+    private static File cubeLocations = new File("/data/cubeLocations");
     
     private static cube[] cubes = new cube[60];
 
@@ -65,9 +68,74 @@ public class autonCreator extends JComponent
         for(int i = 0; i < cubes.length; i++)
         {
             cubes[i] = new cube(cubeSize); // creates 66 cubes with correct size with respect to the field length
-            
         }//end of for
-        
+        readCubeData();
+        //drawCubes();
         window.setVisible(true);
     }//end of main
+    
+    private static void readCubeData()
+    {
+        try
+        {
+            Scanner sc = new Scanner(cubeLocations); // initializes the scanner
+            while(true)
+            {
+                try
+                {
+                    for(int i = 0; i < cubes.length; i++) {
+                        String line = sc.next(); //gets first line
+                        System.out.println(line);
+                        String[] values = line.split(",");
+    
+                        double x = Double.parseDouble(values[0]);
+                        double y = Double.parseDouble(values[1]);
+                        cubes[i].setLocation(x, y);
+                        if(values[2] == "G") {
+                            cubes[i].setColour("GREEN");
+                        }//end of if
+                        else if(values[2] == "O") {
+                            cubes[i].setColour("ORANGE");
+                        }//end of else if
+                        else if(values[2] == "P") {
+                            cubes[i].setColour("PURPLE");
+                        }//end of else if
+                    }//end of for
+                }//end of try
+                catch(NoSuchElementException e)
+                {
+                    break;
+                }//end of catch
+            }//end of while
+            sc.close();
+        }//end of try
+        catch (FileNotFoundException e)
+        {}// end of catch
+    }//end of readCubeData()
+    
+    public static void drawCubes() throws IOException
+    {
+        JLabel[] cubeLabel = new JLabel[cubes.length];
+        Image Green = ImageIO.read(new File("images/TowerTakeoverCube_Green.png"));
+        Image Orange = ImageIO.read(new File("images/TowerTakeoverCube_Orange.png"));
+        Image Purple = ImageIO.read(new File("images/TowerTakeoverCube_Purple.png"));
+        Image resized = Green;
+        for(int i = 0; i < cubeLabel.length; i++)
+        {
+            if (cubes[i].colour.equals("GREEN"))
+            {
+                resized = Green.getScaledInstance(cubes[i].getSize(), cubes[i].getSize(), Image.SCALE_SMOOTH);
+            }//end of if
+            else if (cubes[i].colour.equals("ORANGE"))
+            {
+                resized = Orange.getScaledInstance(cubes[i].getSize(), cubes[i].getSize(), Image.SCALE_SMOOTH);
+            }//end of else if
+            else
+            {
+                resized = Purple.getScaledInstance(cubes[i].getSize(), cubes[i].getSize(), Image.SCALE_SMOOTH);
+            }//end of else if
+            cubeLabel[i] = new JLabel(new ImageIcon(resized));
+            field.add(cubeLabel[i]);
+        }//end of for
+    }//end of drawCubes
 }//end of class
