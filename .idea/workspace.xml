@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="133b811a-c35a-4f05-9ae8-be7683d662b4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.floo" beforeDir="false" afterPath="$PROJECT_DIR$/.floo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ca/NEXUS/autonCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/NEXUS/autonCreator.java" afterDir="false" />
     </list>
@@ -22,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ca/NEXUS/autonCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="92" column="17" lean-forward="true" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
+            <state relative-caret-position="993">
+              <caret line="146" column="53" selection-start-line="146" selection-start-column="53" selection-end-line="146" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,8 +75,8 @@
         <option value="$PROJECT_DIR$/src/ca/NEXUS/functions.java" />
         <option value="$PROJECT_DIR$/data/cubeLocations.txt" />
         <option value="$PROJECT_DIR$/src/ca/NEXUS/cube.java" />
-        <option value="$PROJECT_DIR$/src/ca/NEXUS/autonCreator.java" />
         <option value="$PROJECT_DIR$/.floo" />
+        <option value="$PROJECT_DIR$/src/ca/NEXUS/autonCreator.java" />
       </list>
     </option>
   </component>
@@ -94,6 +93,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,11 +106,6 @@
               <item name="AutonCreator" type="b2602c69:ProjectViewProjectNode" />
               <item name="AutonCreator" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AutonCreator" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AutonCreator" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AutonCreator" type="b2602c69:ProjectViewProjectNode" />
@@ -126,15 +122,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558924709696" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558927534593" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -239,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558923614918</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="created cube locations file with file reader to set variables to the cube objects">
+      <created>1558924733817</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1558924733817</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -258,7 +259,7 @@
     <frame x="0" y="23" width="2560" height="1340" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12787926" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13185067" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -267,11 +268,11 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32932693" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32772437" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.71794873" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39935845" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Floobits" order="6" visible="true" weight="0.32852563" />
+      <window_info anchor="bottom" id="Floobits" order="6" weight="0.32852563" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32932693" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
@@ -341,10 +342,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/cubeLocations.txt">
+    <entry file="file://$PROJECT_DIR$/images/TowerTakeoverCube_Green.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.floo">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        <state relative-caret-position="52">
+          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -355,17 +359,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.floo">
+    <entry file="file://$PROJECT_DIR$/data/cubeLocations.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/NEXUS/autonCreator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="92" column="17" lean-forward="true" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="17" />
+        <state relative-caret-position="993">
+          <caret line="146" column="53" selection-start-line="146" selection-start-column="53" selection-end-line="146" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
