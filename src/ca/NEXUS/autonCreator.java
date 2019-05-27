@@ -16,7 +16,7 @@ public class autonCreator extends JComponent
     static Image fieldImage_resized;
     private static int picOffset;
     
-    private static File cubeLocations = new File("/data/cubeLocations");
+    private static String cubeLocations = "/data/cubeLOcations.txt";
     
     private static cube[] cubes = new cube[60];
 
@@ -91,15 +91,16 @@ public class autonCreator extends JComponent
                         double x = Double.parseDouble(values[0]);
                         double y = Double.parseDouble(values[1]);
                         cubes[i].setLocation(x, y);
-                        if(values[2] == "G") {
+                        if(values[2].equals("G")) {
                             cubes[i].setColour("GREEN");
                         }//end of if
-                        else if(values[2] == "O") {
+                        else if(values[2].equals("O")) {
                             cubes[i].setColour("ORANGE");
                         }//end of else if
-                        else if(values[2] == "P") {
+                        else if(values[2].equals("P")) {
                             cubes[i].setColour("PURPLE");
                         }//end of else if
+	                    System.out.println(cubes[i].getX() + " , " + cubes[i].getY() + " , " + cubes[i].getColour());
                     }//end of for
                 }//end of try
                 catch(NoSuchElementException e)
@@ -110,7 +111,9 @@ public class autonCreator extends JComponent
             sc.close();
         }//end of try
         catch (FileNotFoundException e)
-        {}// end of catch
+        {
+            System.out.println("Error loading file into scanner");
+        }// end of catch
     }//end of readCubeData()
     
     public static void drawCubes() throws IOException

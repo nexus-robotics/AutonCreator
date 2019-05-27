@@ -38,6 +38,11 @@ public class cube
 		return this.location.getY();
 	}//end of getY()
 	
+	public String getColour()
+	{
+		return this.colour;
+	}//end of getY()
+	
 	public int getSize()
 	{
 		return this.size;
