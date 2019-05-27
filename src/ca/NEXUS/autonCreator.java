@@ -85,7 +85,10 @@ public class autonCreator extends JComponent
                     String line = sc.next(); //gets first line
                     System.out.println(line);
                     String[] values = line.split(",");
-                    System.out.println(values[0] + " , " + values[1] + " , " + values[2]);
+                    for(int k = 0; k < values.length; k++)
+                    {
+                        System.out.print(values[k] + "\t");
+                    }
                     double x = Double.parseDouble(values[0]);
                     double y = Double.parseDouble(values[1]);
                     cubes[i].setLocation(x, y);
