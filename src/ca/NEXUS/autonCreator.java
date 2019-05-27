@@ -16,7 +16,7 @@ public class autonCreator extends JComponent
     static Image fieldImage_resized;
     private static int picOffset;
     
-    private static String cubeLocations = "/data/cubeLOcations.txt";
+    private static String cubeLocations = "/data/cubeLocations.txt";
     
     private static cube[] cubes = new cube[60];
 
@@ -76,44 +76,37 @@ public class autonCreator extends JComponent
     
     private static void readCubeData()
     {
-        try
+        Scanner sc = new Scanner(cubeLocations); // initializes the scanner
+        while(true)
         {
-            Scanner sc = new Scanner(cubeLocations); // initializes the scanner
-            while(true)
+            try
             {
-                try
-                {
-                    for(int i = 0; i < cubes.length; i++) {
-                        String line = sc.next(); //gets first line
-                        System.out.println(line);
-                        String[] values = line.split(",");
-    
-                        double x = Double.parseDouble(values[0]);
-                        double y = Double.parseDouble(values[1]);
-                        cubes[i].setLocation(x, y);
-                        if(values[2].equals("G")) {
-                            cubes[i].setColour("GREEN");
-                        }//end of if
-                        else if(values[2].equals("O")) {
-                            cubes[i].setColour("ORANGE");
-                        }//end of else if
-                        else if(values[2].equals("P")) {
-                            cubes[i].setColour("PURPLE");
-                        }//end of else if
-	                    System.out.println(cubes[i].getX() + " , " + cubes[i].getY() + " , " + cubes[i].getColour());
-                    }//end of for
-                }//end of try
-                catch(NoSuchElementException e)
-                {
-                    break;
-                }//end of catch
-            }//end of while
-            sc.close();
-        }//end of try
-        catch (FileNotFoundException e)
-        {
-            System.out.println("Error loading file into scanner");
-        }// end of catch
+                for(int i = 0; i < cubes.length; i++) {
+                    String line = sc.next(); //gets first line
+                    System.out.println(line);
+                    String[] values = line.split(",");
+                    System.out.println(values[0] + " , " + values[1] + " , " + values[2]);
+                    double x = Double.parseDouble(values[0]);
+                    double y = Double.parseDouble(values[1]);
+                    cubes[i].setLocation(x, y);
+                    if(values[2].equals("G")) {
+                        cubes[i].setColour("GREEN");
+                    }//end of if
+                    else if(values[2].equals("O")) {
+                        cubes[i].setColour("ORANGE");
+                    }//end of else if
+                    else if(values[2].equals("P")) {
+                        cubes[i].setColour("PURPLE");
+                    }//end of else if
+                    System.out.println(cubes[i].getX() + " , " + cubes[i].getY() + " , " + cubes[i].getColour());
+                }//end of for
+            }//end of try
+            catch(NoSuchElementException e)
+            {
+                break;
+            }//end of catch
+        }//end of while
+        sc.close();
     }//end of readCubeData()
     
     public static void drawCubes() throws IOException
