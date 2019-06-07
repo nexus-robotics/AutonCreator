@@ -142,7 +142,7 @@ public class autonCreator extends JComponent
             cubeLabel[i] = new JLabel(new ImageIcon(resized));
             cubeLabel[i].setBounds((int)cubes[i].getX(), (int)cubes[i].getY(), resized.getWidth(null), resized.getHeight(null));
             System.out.println("Cube " + (i + 1) + ": " + cubeLabel[i].getBounds());
-            field.add(cubeLabel[i]);
+            controls.add(cubeLabel[i]);
         }//end of for
         System.out.println("Finished all cube drawing");
     }//end of drawCubes
