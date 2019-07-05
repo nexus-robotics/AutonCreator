@@ -1,16 +1,19 @@
 package ca.NEXUS;
 
+import javafx.geometry.Point3D;
+
 import java.awt.*;
 
-public class cube
+public class cube implements Comparable<cube>
 {
 	String colour;
 	int size;
-	Point location = new Point(-30, -30);
-	
-	public cube(int size)
+	Point3D location;
+		
+	public cube(double x, double y, double z, int size, String colour)
 	{
 		this.size = size;
+		setLocation(x, y, z);
 	}//end of constructor
 	
 	public void setColour(String colour)
@@ -18,9 +21,9 @@ public class cube
 		this.colour = colour;
 	}//end of setColour
 	
-	public void setLocation(double inchX, double inchY)
+	public void setLocation( double inchX, double inchY, double inchZ )
 	{
-		this.location.setLocation(inchToPixel(144 - inchX), inchToPixel(144 - inchY));
+		this.location = new Point3D((inchToPixel(144 - inchX)), (inchToPixel(144 - inchY)) - autonCreator.picOffset, inchToPixel(inchZ));
 	}//end of setLocation()
 	
 	private int inchToPixel(double inch)
@@ -38,6 +41,11 @@ public class cube
 		return this.location.getY();
 	}//end of getY()
 	
+	public double getZ()
+	{
+		return this.location.getZ();
+	}
+
 	public String getColour()
 	{
 		return this.colour;
@@ -47,4 +55,15 @@ public class cube
 	{
 		return this.size;
 	}//end of getSize()
+
+	public int compareTo(cube other) {
+
+		if(this.location.getX() != other.location.getX()) {
+			return (int) this.location.getX() - (int) other.location.getX();
+		}
+		else if(this.location.getY() != other.location.getY()){
+			return (int) this.location.getY() - (int) other.location.getY();
+		}
+		return (int) this.location.getZ() - (int) other.location.getZ();
+	}
 }//end of cube object

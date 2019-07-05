@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.util.*;
+import javafx.geometry.Point3D;
 
 public class autonCreator extends JComponent
 {
@@ -14,11 +15,13 @@ public class autonCreator extends JComponent
     
     private static Image fieldImage;
     static Image fieldImage_resized;
-    private static int picOffset;
-    
+    static int picOffset;
+    static JLabel fieldLabel;
+
     private static File cubeLocations = new File("data/cubeLocations.txt");
     
     private static cube[] cubes = new cube[60];
+    private static cube[] cubeGroups;
 
     public static void main(String[] args) throws IOException
     {
@@ -57,62 +60,47 @@ public class autonCreator extends JComponent
         fieldImage_resized = fieldImage.getScaledInstance((int)(fieldImage.getWidth(null) * scalePercent), (int) (fieldImage.getHeight(null) * scalePercent), Image.SCALE_SMOOTH);
         picOffset = (field.getHeight() - fieldImage_resized.getHeight(null)) / 2;
         
-        JLabel picLabel = new JLabel(new ImageIcon(fieldImage_resized));
-        picLabel.setBounds(new Rectangle(controls.getWidth(), picOffset, fieldImage_resized.getWidth(null), fieldImage_resized.getHeight(null)));
+        fieldLabel = new JLabel(new ImageIcon(fieldImage_resized));
+        fieldLabel.setBounds(new Rectangle(controls.getWidth(), picOffset, fieldImage_resized.getWidth(null), fieldImage_resized.getHeight(null)));
         
-        field.add(picLabel);
+        field.add(fieldLabel);
         field.repaint();
-        System.out.println(picLabel.getBounds());
+        System.out.println(fieldLabel.getBounds());
         
-        int cubeSize = (int)(Math.ceil(fieldImage_resized.getWidth(null) * (5.5 / 144)));
-        
-        for(int i = 0; i < cubes.length; i++)
-        {
-            cubes[i] = new cube(cubeSize); // creates 66 cubes with correct size with respect to the field length
-        }//end of for
         System.out.println("Reading and drawing Cube Data");
         readCubeData();
         field.repaint();
         window.setVisible(true);
     }//end of main
-    
+
+    private static void groupCubes(cube[] a)
+    {
+        for(int i = 0; i < a.length; i++)
+        {
+        
+        }//end of for
+    }//end of groupCubes
+
     private static void readCubeData()
     {
-        int z = 1, count = 0;
-        while(count != 60) {
-            try {
+        double z = 2.75;
+        int count = 0, cubeSize = (int)(Math.ceil(fieldImage_resized.getWidth(null) * (5.5 / 144)));
+        
+        while(count != 60)
+        {
+            try
+            {
                 Scanner sc = new Scanner(cubeLocations);
-                try {
-                    for(int i = 0; i < cubes.length; i++) {
+                try
+                {
+                    for(int i = 0; i < cubes.length; i++)
+                    {
                         String line = sc.nextLine(); //gets first line
                         String[] values = line.split(",");
-                        if(Integer.parseInt(values[2]) == (z)) {
-                            double x = Double.parseDouble(values[0]);
-                            double y = Double.parseDouble(values[1]);
-                            //System.out.println(line);
-                            //System.out.println(values[0] + " , " + values[1] + " , " + values[2]);
-                            //System.out.println(x + " , " + y);
-                            cubes[i].setLocation(x, y);
-                            if(values[3].equals("G")) {
-                                cubes[i].setColour("GREEN");
-                            }//end of if
-                            else if(values[3].equals("O")) {
-                                cubes[i].setColour("ORANGE");
-                            }//end of else if
-                            else if(values[3].equals("P")) {
-                                cubes[i].setColour("PURPLE");
-                            }//end of else if
-                            try
-                            {
-                                drawCubes(i);
-                            }//end of try
-                            catch(IOException e) {}
-                            count++;
-                            if(count == 47 || count == 54 || count == 58) {
-                                z++;
-                            }//end of if
-                        }//end of if
+                        cubes[i] = new cube(Double.parseDouble(values[0]), Double.parseDouble(values[1]), Double.parseDouble(values[2]), cubeSize ,values[3]);
                     }//end of for
+                    Arrays.sort(cubes);
+                    groupCubes(cubes);
                 }//end of try
                 catch(NoSuchElementException e)
                 {
@@ -150,7 +138,7 @@ public class autonCreator extends JComponent
             
         cubeLabel[cube] = new JLabel(new ImageIcon(resized));
         cubeLabel[cube].setBounds((int)cubes[cube].getX(), (int)cubes[cube].getY(), resized.getWidth(null), resized.getHeight(null));
-        controls.add(cubeLabel[cube]);
+        field.add(cubeLabel[cube]);
         System.out.println("Cube " + (cube + 1) + " : " + cubes[cube].getX() + " , " + cubes[cube].getY() + " , " + cubes[cube].getColour());
     }//end of drawCubes
 }//end of class
