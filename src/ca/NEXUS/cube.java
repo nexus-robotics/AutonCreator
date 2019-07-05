@@ -13,13 +13,9 @@ public class cube implements Comparable<cube>
 	public cube(double x, double y, double z, int size, String colour)
 	{
 		this.size = size;
+		this.colour = colour;
 		setLocation(x, y, z);
 	}//end of constructor
-	
-	public void setColour(String colour)
-	{
-		this.colour = colour;
-	}//end of setColour
 	
 	public void setLocation( double inchX, double inchY, double inchZ )
 	{

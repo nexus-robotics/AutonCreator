@@ -85,9 +85,6 @@ public class autonCreator extends JComponent
     {
         double z = 2.75;
         int count = 0, cubeSize = (int)(Math.ceil(fieldImage_resized.getWidth(null) * (5.5 / 144)));
-        
-        while(count != 60)
-        {
             try
             {
                 Scanner sc = new Scanner(cubeLocations);
@@ -98,9 +95,16 @@ public class autonCreator extends JComponent
                         String line = sc.nextLine(); //gets first line
                         String[] values = line.split(",");
                         cubes[i] = new cube(Double.parseDouble(values[0]), Double.parseDouble(values[1]), Double.parseDouble(values[2]), cubeSize ,values[3]);
+                        try {
+                            drawCubes(i);
+                        }
+                        catch(IOException e)
+                        {
+                        
+                        }
                     }//end of for
                     Arrays.sort(cubes);
-                    groupCubes(cubes);
+                    //groupCubes(cubes);
                 }//end of try
                 catch(NoSuchElementException e)
                 {
@@ -112,7 +116,6 @@ public class autonCreator extends JComponent
             {
                 e.printStackTrace();
             }// end of catch
-        }//end of while
     }//end of readCubeData()
     
     private static void drawCubes(int cube) throws IOException
@@ -123,11 +126,11 @@ public class autonCreator extends JComponent
         Image Purple = ImageIO.read(new File("images/TowerTakeoverCube_Purple.png"));
         Image resized = Green;
         
-        if (cubes[cube].colour.equals("GREEN"))
+        if (cubes[cube].colour.equals("G"))
         {
             resized = Green.getScaledInstance(cubes[cube].getSize(), cubes[cube].getSize(), Image.SCALE_SMOOTH);
         }//end of if
-        else if (cubes[cube].colour.equals("ORANGE"))
+        else if (cubes[cube].colour.equals("O"))
         {
             resized = Orange.getScaledInstance(cubes[cube].getSize(), cubes[cube].getSize(), Image.SCALE_SMOOTH);
         }//end of else if
@@ -138,7 +141,7 @@ public class autonCreator extends JComponent
             
         cubeLabel[cube] = new JLabel(new ImageIcon(resized));
         cubeLabel[cube].setBounds((int)cubes[cube].getX(), (int)cubes[cube].getY(), resized.getWidth(null), resized.getHeight(null));
-        field.add(cubeLabel[cube]);
+        controls.add(cubeLabel[cube]);
         System.out.println("Cube " + (cube + 1) + " : " + cubes[cube].getX() + " , " + cubes[cube].getY() + " , " + cubes[cube].getColour());
     }//end of drawCubes
 }//end of class
