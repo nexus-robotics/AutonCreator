@@ -17,12 +17,16 @@ public class cube implements Comparable<cube>
 	
 	public void setLocation( double inchX, double inchY, double inchZ )
 	{
-		this.location = new Point3D((inchToPixel(144 - (inchX + 2.75))), (inchToPixel(144 - (inchY - 2.75))) - autonCreator.picOffset, inchToPixel(inchZ));
+		this.location = new Point3D((inchToPixel(144 - (inchX + 2.75))), (inchToPixel(144 - (inchY - 2.75))) - autonCreator.picOffset, inchZ);
 	}//end of setLocation()
 	
 	private int inchToPixel(double inch)
 	{
-		return (int)(Math.ceil(inch * (autonCreator.fieldImage_resized.getWidth(null) / 144)));
+		double ppi = 1800 / autonCreator.fieldLabel.getWidth();
+		final int dpi = (int)(Math.ceil(ppi * autonCreator.scalePercent));
+		//int dpi = java.awt.Toolkit.getDefaultToolkit().getScreenResolution();
+		System.out.println(dpi);
+		return (int)((inch * dpi) / 25.4);
 	}//end of inchToPixel()
 	
 	public double getX()

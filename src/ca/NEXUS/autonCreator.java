@@ -59,18 +59,15 @@ public class autonCreator extends JComponent
         scalePercent = (float)field.getWidth() / (float) fieldImage.getWidth(null);
         fieldImage_resized = fieldImage.getScaledInstance((int)(fieldImage.getWidth(null) * scalePercent), (int) (fieldImage.getHeight(null) * scalePercent), Image.SCALE_SMOOTH);
         picOffset = (field.getHeight() - fieldImage_resized.getHeight(null)) / 2;
+        System.out.println("scale percent: " + scalePercent);
 
         fieldLabel = new JLabel(new ImageIcon(fieldImage_resized));
         fieldLabel.setBounds(new Rectangle(controls.getWidth(), picOffset, fieldImage_resized.getWidth(null), fieldImage_resized.getHeight(null)));
         
-
-	    System.out.println(fieldLabel.getBounds());
         System.out.println("Reading Cube Data");
         readCubeData();
-	    System.out.println("Drawing Cubes");
+        System.out.println("Drawing Cubes");
         drawCubes();
-	    System.out.println((fieldLabel.getX() + fieldLabel.getWidth()) / 2);
-	    System.out.println(controls.getWidth() + groups.get(0).get(0).getX());
         field.add(fieldLabel);
         window.setVisible(true);
     }//end of main
@@ -149,6 +146,7 @@ public class autonCreator extends JComponent
 		        }//end of else if
 		        cubeLabel[i] = new JLabel(new ImageIcon(resized));
 		        cubeLabel[i].setBounds(controls.getWidth()+(int)groups.get(i).get(j).getX(), (int)groups.get(i).get(j).getY(), resized.getWidth(null), resized.getHeight(null));
+		        System.out.println(cubeLabel[i].getX() + " , " + cubeLabel[i].getY());
 		        field.add(cubeLabel[i]);
 	        }//end of for
         }//end of for

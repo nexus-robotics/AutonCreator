@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="133b811a-c35a-4f05-9ae8-be7683d662b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/cubeLocations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/cubeLocations.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Auton-Creator/ca/NEXUS/autonCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Auton-Creator/ca/NEXUS/autonCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/TowerTakeoverField.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/TowerTakeoverField.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Auton-Creator/ca/NEXUS/cube.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Auton-Creator/ca/NEXUS/cube.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ca/NEXUS/autonCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/NEXUS/autonCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ca/NEXUS/cube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/NEXUS/cube.java" afterDir="false" />
     </list>
@@ -24,31 +24,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ca/NEXUS/autonCreator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="522">
+              <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#618#635#0" expanded="true" />
-                <element signature="e#3256#3262#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/cubeLocations.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="51" column="16" lean-forward="true" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+            <state relative-caret-position="156">
+              <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ca/NEXUS/cube.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+            <state relative-caret-position="235">
+              <caret line="19" column="142" lean-forward="true" selection-start-line="19" selection-start-column="142" selection-end-line="19" selection-end-column="142" />
+              <folding>
+                <element signature="e#743#744#0" expanded="true" />
+                <element signature="e#777#778#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,7 +113,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -123,6 +124,11 @@
               <item name="AutonCreator" type="b2602c69:ProjectViewProjectNode" />
               <item name="AutonCreator" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AutonCreator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AutonCreator" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AutonCreator" type="b2602c69:ProjectViewProjectNode" />
@@ -139,6 +145,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -146,7 +153,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562478075217" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563073253960" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -279,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1562364386672</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fixed cube drawings... inch to pixel function is completely wrong and needs to be reworked">
+      <created>1562478168748</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1562478168748</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -295,10 +309,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="23" width="2560" height="1340" extended-state="6" />
+    <frame x="0" y="23" width="2560" height="1340" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10683082" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1076251" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -307,7 +321,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32932693" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18028846" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28926283" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39935845" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -355,7 +369,8 @@
     <MESSAGE value="added z coordinate in cubeLocations.txt and alterred the cube data functions to only create and draw cubes based on the z coordinate" />
     <MESSAGE value="started rework of cube arrays to start an array of cube arrays which would group the cubes together to help speed up processing and fix graphical issues" />
     <MESSAGE value="changed cubelocations file to have break points at each predetermined cube group" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed cubelocations file to have break points at each predetermined cube group" />
+    <MESSAGE value="fixed cube drawings... inch to pixel function is completely wrong and needs to be reworked" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed cube drawings... inch to pixel function is completely wrong and needs to be reworked" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ca/zaymus/test.form" />
@@ -383,29 +398,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/cubeLocations.txt">
+    <entry file="file://$PROJECT_DIR$/src/ca/NEXUS/cube.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="51" column="16" lean-forward="true" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+        <state relative-caret-position="235">
+          <caret line="19" column="142" lean-forward="true" selection-start-line="19" selection-start-column="142" selection-end-line="19" selection-end-column="142" />
+          <folding>
+            <element signature="e#743#744#0" expanded="true" />
+            <element signature="e#777#778#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/NEXUS/autonCreator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="522">
+          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#618#635#0" expanded="true" />
-            <element signature="e#3256#3262#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ca/NEXUS/cube.java">
+    <entry file="file://$PROJECT_DIR$/data/cubeLocations.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+        <state relative-caret-position="156">
+          <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
         </state>
       </provider>
     </entry>
